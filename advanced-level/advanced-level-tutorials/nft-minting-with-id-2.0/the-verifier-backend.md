@@ -1,8 +1,10 @@
+---
+description: >-
+  In the scope of this part, we will implement a verifier backend server that
+  signs a claim if it is verified.
+---
+
 # The Verifier Backend
-
-In this tutorial, we will show you how to create a minting platform that allows minting for people older than 18. In order to do that, the platform should ask for proof that the minter meets our requirement which is being older than 18 years old. But first, let’s shed a bit of light on what technology we will use, its terminology and what is the beauty of Concordium.
-
-We decided to create two parts as the first part includes a lot of cryptographic implementation and explanation. In the scope of this part, we will implement a verifier backend server that signs a claim if it is verified.
 
 **ZKP and ID Proofs**
 

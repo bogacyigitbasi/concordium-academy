@@ -52,7 +52,6 @@
     * [Minting Contract](advanced-level/advanced-level-tutorials/nft-minting-with-id-2.0/minting-contract.md)
     * [Front-end Development](advanced-level/advanced-level-tutorials/nft-minting-with-id-2.0/front-end-development.md)
     * [How it works?](advanced-level/advanced-level-tutorials/nft-minting-with-id-2.0/how-it-works.md)
-  * [Voting dApp](advanced-level/advanced-level-tutorials/voting-dapp.md)
 
 ## Assignment #3
 
