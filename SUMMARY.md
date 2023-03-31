@@ -27,9 +27,9 @@
   * [📠 Register Data On-Chain](beginner-level-tutorials/register-data-on-chain.md)
   * [⛏ Simple Minting dApp](beginner-level-tutorials/simple-minting-dapp.md)
 
-## Assingment #1
+## Assignment #1
 
-* [💪 Basic Smart Contract](assingment-1/basic-smart-contract.md)
+* [💪 Basic Smart Contract](assignment-1/basic-smart-contract.md)
 
 ## MID LEVEL&#x20;
 
@@ -40,9 +40,9 @@
     * [Mint](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/mint.md)
     * [Burn and Unlock](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/burn-and-unlock.md)
 
-## Assingment #2
+## Assignment #2
 
-* [💪 dApp Using WalletConnect](assingment-2/dapp-using-walletconnect.md)
+* [💪 dApp Using WalletConnect](assignment-2/dapp-using-walletconnect.md)
 
 ## ADVANCED LEVEL
 
