@@ -53,6 +53,10 @@ cargo new backend
 
 **Concordium Rust-SDK**
 
+{% hint style="info" %}
+Concordium Rust SDK it's published on crates.io now and you can directly add   `concordium-rust-sdk = 1 it` your Cargo.toml file. You don't have to clone and install it.
+{% endhint %}
+
 We will use a lot of features that Concordium Rust-SDK provides and we need to install it. Since it’s not published on crates.io yet, you have to clone your code and build it.
 
 Create a folder called _deps_ and then clone the repo inside of it. Run the command below to clone the code and then you will update the submodules with the next one.
@@ -107,6 +111,8 @@ brew install protobuf
 ```
 
 <figure><img src="https://miro.medium.com/v2/resize:fit:1400/1*8zgfFsDaskUBNtqbHOSkZw.png" alt=""><figcaption></figcaption></figure>
+
+**Implementation**
 
 Let’s start with the implementation and create a _types.rs_ file. We will use almost the same code in this [link](https://github.com/Concordium/concordium-dapp-examples/blob/main/gallery/verifier/src/types.rs). In this file, we will create our data structures, and responses, and manipulate error codes.
 
