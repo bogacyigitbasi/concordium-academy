@@ -29,7 +29,7 @@
 
 ## Assignment #1
 
-* [💪 Basic Smart Contract](assignment-1/basic-smart-contract.md)
+* [💪 Basic Smart Contract](assingment-1/basic-smart-contract.md)
 
 ## MID LEVEL&#x20;
 
@@ -42,7 +42,7 @@
 
 ## Assignment #2
 
-* [💪 dApp Using WalletConnect](assignment-2/dapp-using-walletconnect.md)
+* [💪 dApp Using WalletConnect](assingment-2/dapp-using-walletconnect.md)
 
 ## ADVANCED LEVEL
 
