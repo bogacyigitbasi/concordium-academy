@@ -379,11 +379,17 @@ pub enum CustomContractError {
     ContractOnly,
     /// Failed to invoke a contract.
     InvokeContractError,
+    /// Unique tokenID
     TokenAlreadyMinted,
+    /// Cant be collateralized
     InvalidCollateral,
+    /// Same collateral ID twice
     AlreadyCollateralized,
+    /// Cant burn
     NoBalanceToBurn,
+    /// Contracts are not allowed
     AccountsOnly,
+    /// Cant call another CIS-2 contract
     Cis2ClientError(Cis2ClientError),
 }
 ```
@@ -571,7 +577,7 @@ fn contract_mint<S: HasStateApi>(
 
 We are about to finalize our contract development after one final step which is the _contract\_transfer()_ function. Basically, when you want to send your tokens to another address, you will invoke this function. In addition to that, we wanted to combine the burning process into this function.&#x20;
 
-According to this logic, when you transfer the fractions (tokens minted on this contract) back to the contract, we assume you want to burn them. You need to be the owner of the asset when calling it. After we ensure whether you are authorized -meaning have some tokens-, then we check that you want to send those tokens to the contract itself. The next step is calling the state’s _burn()_ function which will reduce the token amount from either your balance or the state followed by emitting a _BurnEvent._ Note that, when you call the _burn()_ function, you need to emit the _BurnEvent._ For more detail check CIS-2 standard documentation from this [link](https://proposals.concordium.software/CIS/cis-2.html#cis-2-concordium-token-standard-2).
+According to this logic, when you transfer the fractions (tokens minted on this contract) back to the contract, we assume you want to burn them. You need to be the owner of the asset when calling it. After we ensure whether you are authorized -meaning have some tokens-, then we check that you want to send those tokens to the contract itself. The next step is calling the state’s _burn()_ function which will reduce the token amount from your balance and the state's total supply followed by emitting a _BurnEvent._ Note that, when you call the _burn()_ function, you need to emit the _BurnEvent._ For more detail check CIS-2 standard documentation from this [link](https://proposals.concordium.software/CIS/cis-2.html#cis-2-concordium-token-standard-2).
 
 The state’s _burn()_ function will return the _remaining\_amount_, if this amount is 0 then we can say that this should be unlocked now as there is no need for the collateral. At this point, we will need a client in order to communicate with this CIS-2 token -the one that was locked as collateral in the beginning- smart contract to invoke the transfer function. Basically, our contract will be transferring the asset back to the owner by getting his/her address from the state’s _CollateralKey_ struct using the _token\_id_.
 
