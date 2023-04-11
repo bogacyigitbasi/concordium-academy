@@ -8,9 +8,9 @@ description: >-
 
 **ZKP and ID Proofs**
 
-Concordium Web wallet provides this feature and serves to dApps about if a particular user meets certain criteria(s) like age, gender, nationality, and even name. You can find more info in this [link](https://developer.concordium.software/en/mainnet/net/guides/create-proofs.html). But basically, when you have a Concordium account you have an ID object and the identity credential in your wallet. On-chain (in your account) there exists a (list of) commitment(s) to your attributes. No one can know who you are other than being able to see your public address. But with the brilliant _Zero-Knowledge Proof_ technology- proving a claim without revealing any information but the claim itself-, any dApp that wants to make sure that its users meet some criteria, the answer to the query which uses a ZK proof to show correctness. We call these criteria _statements._ These statements can be located in the dApp itself or stored in _the verifier_ which is a backend HTTP server. For this particular tutorial’s scenario it is being older than 18 is the statement that dApps asking for.
+The Concordium Wallet for Web allows dApps or services to request proof that the user meets some requirement, such as proof the user is over a certain age or resides in a specific set of countries or areas. You can find more info in this [link](https://developer.concordium.software/en/mainnet/net/guides/create-proofs.html). But basically, when you have a Concordium account you have an ID object and the identity credential in your wallet. On-chain (in your account) there exists a (list of) commitment(s) to your attributes. No one can know who you are other than being able to see your public address. But with the brilliant _Zero-Knowledge Proof_ technology- proving a claim without revealing any information but the claim itself-, any dApp that wants to make sure that its users meet some criteria, the answer to the query which uses a ZK proof to show correctness. We call these criteria _statements._ These statements can be located in the dApp itself or stored in _the verifier_ which is a backend HTTP server. For this particular tutorial’s scenario it is being older than 18 is the statement that dApps asking for.
 
-When the dApps wants to prove someone meets the criteria, it should first go to _the verifier._ The verifier is one of the key elements of this architecture, basically, dApp uses to verify the claims but it has a key function above all else. The verifier makes sure that a ZKP query cant be reused by someone else for example if it's stolen somehow. When the dApp communicates with the verifier, it asks for a _challenge_ simply a one-time or time-bound random string, that will be used while creating the proofs. The verifier, when doing verification checks whether the proof is created with the particular challenge issued for the query. If the proof is not created with the particular challenge, will not be verified.
+When the dApps wants to prove someone meets the criteria, it should first communicate with _the verifier._ The verifier is one of the key elements of this architecture, basically, dApp uses to verify the claims but it has a key function above all else. The verifier makes sure that a ZKP query cant be reused by someone else for example if it's stolen somehow. When the dApp communicates with the verifier, it asks for a _challenge_ simply a one-time or time-bound random string, that will be used while creating the proofs. The verifier, when doing verification checks whether the proof is created with the particular challenge issued for the query. If the proof is not created with the particular challenge, will not be verified.
 
 When you have your Concordium account, meaning your ID object is created there are a set of _attributes_ that is inside of your encrypted data structure. A full list of the attributes can be found in this here [but](https://developer.concordium.software/en/mainnet/net/guides/create-proofs.html#general-rules) some of them are listed below.
 
@@ -20,7 +20,7 @@ When you have your Concordium account, meaning your ID object is created there a
 * Country of nationality
 * …
 
-Using the Concordium Web Wallet, our dApp can request proofs for any of these attributes from its users. There is no possible way for us to _know_ anything beyond that _the statement_ doesn't include in the first place. When the user agrees to reveal these pieces of information, -not his all identity- he/she will start experiencing true Self-Sovereign Identity. That’s the beauty and its the future of Web 3. We will give the control back to the users!
+Using the Concordium Web Wallet, our dApp can request proofs for any of these attributes from its users. There is no possible way for us to _know_ anything beyond that _the statement_ doesn't include in the first place. When the user agrees to reveal these pieces of information, he/she will start experiencing true Self-Sovereign Identity. That’s the beauty and its the future of Web 3. We will give the control back to the users!
 
 **Minting with ID 2.0**
 
@@ -33,10 +33,10 @@ Let’s get started with technical implementations. It’s always good to define
 Nice, we have a very short requirements list. Now take a look at the flow from the architectural point of view in general.
 
 * When the user wants to mint something, dApp goes to the verifier backend and asks for a challenge alongside the statement(s).
-* The dApp sends a request for proof for the given challenge and statement to the wallet.
+* The dApp sends a request for proof of the given challenge and statement to the wallet.
 * The user accepts the requests, wallet sends back the proof.
 * The dApp sends it to the verifier, it verifies the proof is correct according to the challenge and statement.
-* It uses the private key of the owner, to sign a message.
+* The dApp uses the private key of the owner, to sign a message.
 * The smart contract’s _mint()_ function checks the signature created by the owner and allows for mint.
 
 **Verifier Backend**

@@ -2,7 +2,7 @@
 
 ## Super Simple: Concordium NFT Minting dApp <a href="#7a7f" id="7a7f"></a>
 
-Hello there! In this tutorial, we are going to implement a very basic NFT Minting dApp that can connect to the Concordium. Our application will include three buttons, one for connecting it to the web wallet, one for initializing the contract and the other will be for minting our NFT. Simply you will learn how to connect your dApp to the Concordium blockchain and how can you invoke a function from an already deployed smart contract.
+Hello there! In this tutorial, we are going to implement a very basic NFT Minting dApp that can connect to the Concordium. Our application will include three buttons, one for connecting it to the web wallet, one for initializing the contract and the other will be for minting our NFT. Simply you will learn how to connect your dApp to the Concordium blockchain and how you can invoke a function from an already deployed smart contract.
 
 We will start from scratch with an empty _React_ application that is bootstrapped from React template and will be using _material-ui._ Within this very basic application, there will be 3 components for minting, initializing, and connecting the wallet. It is assumed you already set up your development environment and wallet so there will be no explanation about those steps. For that, you can check other tutorials either in my profile or Concordium’s developer [portal](https://developer.concordium.software/en/mainnet/smart-contracts/tutorials/index.html). Anyway, let's get started.
 

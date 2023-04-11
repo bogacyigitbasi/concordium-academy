@@ -8,7 +8,7 @@ We will organize the smart contract slightly differently than usual for this tut
 /// The contract state,
 ///
 /// Note: The specification does not specify how to structure the contract state
-/// and this could be structured in a more space efficient way.
+/// and this could be structured in a more space-efficient way.
 #[derive(Serial, DeserialWithState, StateClone)]
 #[concordium(state_parameter = "S")]
 pub struct State<S> {
@@ -16,21 +16,20 @@ pub struct State<S> {
     pub(crate) state: StateMap<Address, AddressState<S>, S>,
     /// All of the token IDs
     pub(crate) tokens: StateMap<ContractTokenId, MetadataUrl, S>,
-    /// Map with contract addresses providing implementations of additional
-    /// standards.
+    /// Map with tokenId and token amount for the supply
     pub(crate) token_supply: StateMap<ContractTokenId, ContractTokenAmount, S>,
     pub(crate) implementors: StateMap<StandardIdentifierOwned, Vec<ContractAddress>, S>,
     pub(crate) collaterals: StateMap<CollateralKey, CollateralState, S>,
 }
 ```
 
-Let’s start with the _state.rs_ file. As you already know from the previous tutorials, the state will keep our assets latest state always. The contract has to have an initialization function to create an empty state in the beginning which includes four maps such as _state, tokens, token\_supply, implementors, and collaterals_. We have one addition which is the _collaterals_ practically, the tokens to be locked will be stored in this _StateMap\<CollateralKey, CollateralState, S>._
+Let’s start with the _state.rs_ file. As you already know from the previous tutorials, the state will keep our assets latest state. The contract has to have an initialization function to create an empty state in the beginning which includes four maps such as _state, tokens, token\_supply, implementors, and collaterals_. We have one addition which is the _collaterals_ practically, the tokens to be locked will be stored in this _StateMap\<CollateralKey, CollateralState, S>._
 
 We need to create a new state variable for our collateralized token aka the tokens to be locked. We will need to keep the token’s contract address, its id and who locked it which all are provided in the _CollateralKey_ struct below. Then we need the token amounts for the total number of fractions and the new token ids.&#x20;
 
 Basically, when someone sends the fraction token to this contract, we will assume that he/she wants to burn that asset and we will burn it and the _new()_ function will be invoked when someone wants to add new collateral to mint its fractions.
 
-****
+
 
 ```
 #[derive(Serial, Deserial, Clone, SchemaType, Copy)]
@@ -58,17 +57,17 @@ impl CollateralState {
 
 There are 5 new additions to the _cis2-multi_ contract state functions for handling the collateral state. The first one is the _add\_collateral()_ function, it expects the _token contract address, token\_id, owner address,_ and the _token amount_ to be locked.&#x20;
 
-The second one is the _has\_collateral()_ similarly takes the _token contract address, token\_id,_ and _owner address_ as input to create a key in the form of _CollateralKey_ struct to look into the _StateMap_. If someone has already collateralized the token, this will return _true_ and we will use this to make sure that he will not be able to do it again.
+The second one is the _has\_collateral(), which_ similarly takes the _token contract address, token\_id,_ and _owner address_ as input to create a key in the form of _CollateralKey_ struct to look into the _StateMap_. If someone has already collateralized the token, this will return _true_ and we will use this to make sure that he will not be able to do it again.
 
-The third one is _find\_collateral()_ it takes _token\_id (fraction)_ as a parameter and checks its existence in the minted tokens. If there exists a token with that id, returns a clone of it.
+The third one is _find\_collateral(),_ which takes _token\_id (fraction)_ as a parameter and checks its existence in the minted tokens. If there exists a token with that id, returns a clone of it.
 
-The fourth one is _has\_fractions()_ we will use this one to check whether a token is already fractionalized into new ones. We don't want to allow people to create more and more fractions when they lock their asset once.&#x20;
+The fourth one is _has\_fractions(),_ we will use this one to check whether a token is already fractionalized into new ones. We don't want to allow people to create more and more fractions when they lock their assets once.&#x20;
 
 The last one is _update\_collateral\_token()_ we will use this one when we have locked the tokens while minting new fractions. Based on our amount of fractions, it will update the state with the new tokens.
 
 One important note here you can lock a semi-fungible token technically with this example. If you would like to limit it you can adjust it by checking the amount simply.&#x20;
 
-****
+
 
 ```
     pub(crate) fn add_collateral(
@@ -255,9 +254,9 @@ Then we need to add a _burn()_ function to the state so that we will be able to 
 
 
 
-****
 
-****
+
+
 
 **Params.rs**
 
@@ -570,11 +569,11 @@ fn contract_mint<S: HasStateApi>(
 
 **Transfer Function**
 
-We are about to finalize our contract development after one final step which is the _contract\_transfer()_ function. Basically, when you want to send new tokens to another address, you will invoke this function. In addition to that, we wanted to combine the burning process into this function.&#x20;
+We are about to finalize our contract development after one final step which is the _contract\_transfer()_ function. Basically, when you want to send your tokens to another address, you will invoke this function. In addition to that, we wanted to combine the burning process into this function.&#x20;
 
-According to this logic, when you transfer the fractions (tokens minted on this contract) back to the contract, we assume you want to burn them. You need to be the owner of the asset when calling it. After we ensure whether are you authorized -meaning have some tokens-, then we check that you want to send those tokens to the contract itself. The next step is calling the state’s _burn()_ function which will reduce the token amount from either your balance or the state followed by emitting a _BurnEvent._ Note that, when you call the _burn()_ function, you need to emit the _BurnEvent._ For more detail check CIS-2 standard documentation from this [link](https://proposals.concordium.software/CIS/cis-2.html#cis-2-concordium-token-standard-2).
+According to this logic, when you transfer the fractions (tokens minted on this contract) back to the contract, we assume you want to burn them. You need to be the owner of the asset when calling it. After we ensure whether you are authorized -meaning have some tokens-, then we check that you want to send those tokens to the contract itself. The next step is calling the state’s _burn()_ function which will reduce the token amount from either your balance or the state followed by emitting a _BurnEvent._ Note that, when you call the _burn()_ function, you need to emit the _BurnEvent._ For more detail check CIS-2 standard documentation from this [link](https://proposals.concordium.software/CIS/cis-2.html#cis-2-concordium-token-standard-2).
 
-The state’s _burn()_ function will return the _remaining\_amount_ here is the thing, if this amount is 0 then we can say that this should be unlocked now as there is no need for the collateral. At this point, we will need a client in order to communicate with this CIS-2 token -the one that was locked as collateral in the beginning- smart contract to invoke the transfer function. Basically, our contract will be transferring the asset back to the owner by getting his/her address from the state’s _CollateralKey_ struct using the _token\_id_.
+The state’s _burn()_ function will return the _remaining\_amount_, if this amount is 0 then we can say that this should be unlocked now as there is no need for the collateral. At this point, we will need a client in order to communicate with this CIS-2 token -the one that was locked as collateral in the beginning- smart contract to invoke the transfer function. Basically, our contract will be transferring the asset back to the owner by getting his/her address from the state’s _CollateralKey_ struct using the _token\_id_.
 
 In the else statement, we are just transferring a token to someone else so this part is identical to the cis2-multi contract’s _transfer()_ function.&#x20;
 

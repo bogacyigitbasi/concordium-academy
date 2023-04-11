@@ -21,7 +21,7 @@ Remember our fractionalization logic starts with collateralizing the CIS-2 NFT. 
 Let’s check the state by calling the _view()_ function below.
 
 ```
-concordium-client contract invoke <YOUR-INDEX>--entrypoint view --schema ../cis2-multi/dist/schema.bin --grpc-port 10000 --grpc-ip node.testnet.concordium.com
+concordium-client contract invoke <YOUR-TOKEN-CONTRACT-INDEX>--entrypoint view --schema ../cis2-multi/dist/schema.bin --grpc-port 10000 --grpc-ip node.testnet.concordium.com
 ```
 
 <figure><img src="https://cdn-images-1.medium.com/max/1600/1*DbGusfXPYt5bbiDvz4Uiiw.png" alt=""><figcaption></figcaption></figure>
@@ -113,7 +113,7 @@ concordium-client contract update <YOUR-CONTRACT-INSTANCE> --entrypoint mint --p
 Now, let’s check the fractionalizer’s state.&#x20;
 
 ```
-concordium-client contract invoke <YOUR-INDEX> --entrypoint view --schema dist/schema.bin  --grpc-port 10000 --grpc-ip node.testnet.concordium.com
+concordium-client contract invoke <YOUR-FRACTIONALIZER-CONTRACT-INDEX> --entrypoint view --schema dist/schema.bin  --grpc-port 10000 --grpc-ip node.testnet.concordium.com
 ```
 
 <figure><img src="https://cdn-images-1.medium.com/max/1600/1*GwVvUSGn6tIC8fVO3cZsug.png" alt=""><figcaption></figcaption></figure>

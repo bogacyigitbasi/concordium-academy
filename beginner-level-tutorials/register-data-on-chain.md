@@ -264,7 +264,7 @@ It will redirect you to the dashboard, to that block in particular.
 
 <figure><img src="https://miro.medium.com/max/1400/1*YUp5_CVXNOjIfk88C4FRGQ.png" alt=""><figcaption></figcaption></figure>
 
-Let’s compare the data we stored ‘concordium“‘s SHA-256 version, right? You can use [this](https://emn178.github.io/online-tools/sha256.html) online tool to calculate any text’s SHA-256.
+Let’s compare the data we stored in the Concordium SHA-256 version, right? You can use [this](https://emn178.github.io/online-tools/sha256.html) online tool to calculate any text’s SHA-256.
 
 <figure><img src="https://miro.medium.com/max/1400/1*dmjts1A7uJLH8YRctHhYgg.png" alt=""><figcaption></figcaption></figure>
 
