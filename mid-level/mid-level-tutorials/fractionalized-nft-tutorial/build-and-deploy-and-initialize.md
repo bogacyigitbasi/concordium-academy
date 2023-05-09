@@ -24,7 +24,7 @@ Second, we need to deploy the wasm compiled smart contract to the testnet. Use t
 Please keep this in mind, for some use cases you might need to run your own local node as there could be some limitations of this one. If you need more info either check this link or connect with us from our [support](http://support.concordium.software) channel.
 
 ```
-concordium-client module deploy dist/module.wasm.v1 --sender <YOUR-ADDRESS> --name CIS2-Fractionalizer --grpc-port 10000 --grpc-ip node.testnet.concordium.com
+concordium-client module deploy dist/module.wasm.v1 --sender <YOUR-ADDRESS> --name CIS2-Fractionalizer --grpc-port 20000 --grpc-ip node.testnet.concordium.com
 ```
 
 <figure><img src="https://cdn-images-1.medium.com/max/1600/1*HKHI7MeCSqCmBQYiWQf5Bw.png" alt=""><figcaption></figcaption></figure>
@@ -34,7 +34,7 @@ concordium-client module deploy dist/module.wasm.v1 --sender <YOUR-ADDRESS> --na
 Third, we need to create a new instance of this smart contract which will initialize our empty state that holds the assets and allow us to invoke all methods. Run the command below to create an instance of your deployed contract using the module reference.
 
 ```
-concordium-client contract init <YOUR-MODULE-HASH> --sender <YOUR-ADDRESS> --energy 30000 --contract CIS2-Fractionalizer --grpc-port 10000 --grpc-ip node.testnet.concordium.com
+concordium-client contract init <YOUR-MODULE-HASH> --sender <YOUR-ADDRESS> --energy 30000 --contract CIS2-Fractionalizer --grpc-port 20000 --grpc-ip node.testnet.concordium.com
 ```
 
 <figure><img src="https://cdn-images-1.medium.com/max/1600/1*1Wz0C2gtyxAAlX4q9uOZRg.png" alt=""><figcaption></figcaption></figure>
