@@ -1,38 +1,4 @@
-# ⛏ Concordium NFT Minting Tutorial with Rust-SDK
-
-Hey there, in this tutorial we are going to interact with a CIS-2 token contract for minting an NFT using the [Concordium Rust-SDK](https://github.com/Concordium/concordium-rust-sdk). We will deploy and initialize the contract using the SDK and similarly invoke functions like _mint()_, _transfer(),_ and _tokenMetadata()_ using it. Since this is an SDK-oriented tutorial, there will not be any specific explanation about smart contract development. You can find many other examples that show how you can interact with Concordium using the Rust-SDK in [this](https://github.com/Concordium/concordium-rust-sdk/tree/main/examples) example GitHub repository. We will use the [**Concordium Smart Contracts VSCode Extension**](https://marketplace.visualstudio.com/items?itemName=Concordium.concordium-smart-contracts) to create our template contract.&#x20;
-
-**Smart Contract Generation with VSCode Extension**
-
-Concordium now has a direct extension on VSCode that allows you to easily set up your projects within minutes. You can use the search box in VSCode to find it and click the “Install” button to install it and then “Enable”.
-
-<figure><img src="https://cdn-images-1.medium.com/max/1600/1*MIUX22Lcmd8oHzd7W49mjA.png" alt=""><figcaption></figcaption></figure>
-
-Let’s create our project using the VSCode extension, open up VSCode’s Command Palette and start typing Concordium, you should be seeing the list of commands applicable. By default, you can open up using the shortcuts below.
-
-* macOS: Command+Shift+P
-* Windows: Ctrl+Shift+P
-* Linux: Ctrl+Shift+P
-
-<figure><img src="https://cdn-images-1.medium.com/max/1600/1*DqfByyG77Y_cnZ-1JUBxyA.png" alt=""><figcaption></figcaption></figure>
-
-Select “Initialize a smart contract project” and click your folder to set up your project.&#x20;
-
-<figure><img src="https://cdn-images-1.medium.com/max/1600/1*TyJBIRYucyNYkhzWjnIGgQ.png" alt=""><figcaption></figcaption></figure>
-
-Then you will have two template options including _cis2-nft_ and _default_. Continue with _cis2-nft,_ give your project a name, specify a URL of your token’s metadata, and add a description.&#x20;
-
-<figure><img src="https://cdn-images-1.medium.com/max/1600/1*cRiT9O-Tg9YRan6J3DX_dA.png" alt=""><figcaption></figcaption></figure>
-
-Now let’s build it. Open up the “_Command Pallette_” again, and select “_Build contract_” this time, please note that this option will build your contract and embed your schema in the module.&#x20;
-
-<figure><img src="https://cdn-images-1.medium.com/max/1600/1*Y1vvXrZlTCj0LShohLJKnw.png" alt=""><figcaption></figcaption></figure>
-
-You can find the module file in the created folder called “_concordium-out_”.
-
-<figure><img src="https://cdn-images-1.medium.com/max/1600/1*aU-WkWTpVWTp5Re5etP9kA.png" alt=""><figcaption></figcaption></figure>
-
-**Contract Interactions with Concordium-Rust-SDK**
+# Contract Interactions with Concordium-Rust-SDK
 
 Let’s continue with the client development, first, we will create a new instance of our deployed contract with the module reference we have. For structuring things a bit, we will create another folder for our client with cargo.
 

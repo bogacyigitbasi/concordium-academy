@@ -39,7 +39,9 @@
     * [Build & Deploy & Initialize](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/build-and-deploy-and-initialize.md)
     * [Mint](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/mint.md)
     * [Burn and Unlock](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/burn-and-unlock.md)
-  * [⛏ Concordium NFT Minting Tutorial with Rust-SDK](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk.md)
+  * [⛏ Concordium NFT Minting Tutorial with Rust-SDK](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk/README.md)
+    * [Smart Contract Template VSCode Extension](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk/smart-contract-template-vscode-extension.md)
+    * [Contract Interactions with Concordium-Rust-SDK](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk/contract-interactions-with-concordium-rust-sdk.md)
 
 ## Assignment #2
 
