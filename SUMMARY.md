@@ -39,6 +39,7 @@
     * [Build & Deploy & Initialize](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/build-and-deploy-and-initialize.md)
     * [Mint](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/mint.md)
     * [Burn and Unlock](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/burn-and-unlock.md)
+  * [⛏ Concordium NFT Minting Tutorial with Rust-SDK](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk.md)
 
 ## Assignment #2
 
