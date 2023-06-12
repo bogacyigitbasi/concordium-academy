@@ -320,7 +320,7 @@ export default function Mint() {
      amount: new CcdAmount(BigInt(0)),
      maxContractExecutionEnergy: BigInt(9999),
     } as UpdateContractPayload,
-    paramJson,
+    paramJson as SmartContractParameters,
     schemaBuffer.toString("base64")
    );
 
