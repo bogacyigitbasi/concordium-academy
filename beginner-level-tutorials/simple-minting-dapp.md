@@ -305,7 +305,7 @@ export default function Mint() {
     "hex"
    );
    const serializedParams = serializeUpdateContractParameters(
-    process.env.REACT_APP_CONTRACT_NAME!,
+    REACT_APP_CONTRACT_NAME!,
     "mint",
     paramJson,
     schemaBuffer
