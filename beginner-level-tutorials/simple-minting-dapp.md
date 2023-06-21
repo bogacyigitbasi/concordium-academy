@@ -11,7 +11,7 @@ We will start from scratch with an empty _React_ application that is bootstrappe
 First, set up a working directory for our dApp and then create an empty react project from the template inside it. We assume you already have _yarn_ installed in your system and have a text editor, vscode will be used in the tutorial. To create a react project run the command below.
 
 ```
-npx create-react-app <YOUR-DAPP-NAME> --template typescript
+yarn create react-app <YOUR-DAPP-NAME> --template typescript
 ```
 
 It will take some time to fetch & install all packages and dependencies, and when it’s all done you will have something like the below.
