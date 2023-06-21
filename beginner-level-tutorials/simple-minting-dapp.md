@@ -200,9 +200,6 @@ export default function App() {
  );
 }
 
-
-}
-
 ```
 
 After these changes, our application will look like the one below. Ty the “INITIALIZE CONTRACT” button, it should pop up your web wallet to create a new instance.
