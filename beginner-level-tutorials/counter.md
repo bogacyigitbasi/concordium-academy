@@ -187,7 +187,7 @@ Since you just initialized the contract it is 0.
 Create a JSON file that holds your operator that will be given as input to the function and run the command below. Basically, you are saying to the contract instance “with this transaction I will update your state from the increment entrypoint” which is your function name with this parameter.
 
 ```
-concordium-client contract update <YOUR-CONTRACT-INSTANCE> --entrypoint increment --parameter-json <PATH-TO-JSON> --schema dist/smart-contract-multi/schema.bin --sender <YOUR-ADDRESS> --energy 6000 --grpc-port 10000 --grpc-ip node.testnet.concordium.com
+concordium-client contract update <YOUR-CONTRACT-INSTANCE> --entrypoint increment --parameter-json <PATH-TO-JSON> --schema dist/schema.bin --sender <YOUR-ADDRESS> --energy 6000 --grpc-port 10000 --grpc-ip node.testnet.concordium.com
 ```
 
 Start by testing with your conditions. First, try another account other than the owner of the contract since you want that only the owner can call this function.
