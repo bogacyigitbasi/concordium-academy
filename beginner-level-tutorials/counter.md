@@ -155,7 +155,7 @@ cargo concordium build --out dist/module.wasm.v1 --schema-out dist/schema.bin
 Deploy it with the command below.
 
 ```
-concordium-client module deploy dist/module.wasm.v1 --sender <YOUR-ACCOUNT> --name counter --grpc-port 10000 --grpc-ip node.testnet.concordium.com
+concordium-client module deploy dist/module.wasm.v1 --sender <YOUR-ACCOUNT> --name counter --grpc-port 20000 --grpc-ip node.testnet.concordium.com
 ```
 
 <figure><img src="https://developer.concordium.software/en/mainnet/_images/deploy.png" alt=""><figcaption></figcaption></figure>
@@ -163,7 +163,7 @@ concordium-client module deploy dist/module.wasm.v1 --sender <YOUR-ACCOUNT> --na
 Initialize it to create your contract instance, so you are ready to invoke the functions in the next section.
 
 ```
-concordium-client contract init <YOUR-MODULE-HASH> --sender <YOUR-ADDRESS> --energy 30000 --contract counter --grpc-port 10000 --grpc-ip node.testnet.concordium.com
+concordium-client contract init <YOUR-MODULE-HASH> --sender <YOUR-ADDRESS> --energy 30000 --contract counter --grpc-port 20000 --grpc-ip node.testnet.concordium.com
 ```
 
 <figure><img src="https://developer.concordium.software/en/mainnet/_images/initialize.png" alt=""><figcaption></figcaption></figure>
@@ -175,7 +175,7 @@ concordium-client contract init <YOUR-MODULE-HASH> --sender <YOUR-ADDRESS> --ene
 First, check the initial state of the contract.
 
 ```
-concordium-client contract invoke <YOUR-CONTRACT-INSTANCE> --entrypoint view --schema dist/schema.bin --grpc-port 10000 --grpc-ip node.testnet.concordium.com
+concordium-client contract invoke <YOUR-CONTRACT-INSTANCE> --entrypoint view --schema dist/schema.bin --grpc-port 20000 --grpc-ip node.testnet.concordium.com
 ```
 
 Since you just initialized the contract it is 0.
@@ -187,7 +187,7 @@ Since you just initialized the contract it is 0.
 Create a JSON file that holds your operator that will be given as input to the function and run the command below. Basically, you are saying to the contract instance “with this transaction I will update your state from the increment entrypoint” which is your function name with this parameter.
 
 ```
-concordium-client contract update <YOUR-CONTRACT-INSTANCE> --entrypoint increment --parameter-json <PATH-TO-JSON> --schema dist/schema.bin --sender <YOUR-ADDRESS> --energy 6000 --grpc-port 10000 --grpc-ip node.testnet.concordium.com
+concordium-client contract update <YOUR-CONTRACT-INSTANCE> --entrypoint increment --parameter-json <PATH-TO-JSON> --schema dist/schema.bin --sender <YOUR-ADDRESS> --energy 6000 --grpc-port 20000 --grpc-ip node.testnet.concordium.com
 ```
 
 Start by testing with your conditions. First, try another account other than the owner of the contract since you want that only the owner can call this function.
