@@ -145,11 +145,11 @@ export default function Initialize() {
   var REACT_APP_MODULE_REF="312f99d6406868e647359ea816e450eac0ecc4281c2665a24936e6793535c9f6";
   const txnHash = await provider.sendTransaction(
    account!,
-   AccountTransactionType.InitContract,
+   AccountTransactionType.InitContract as any,
    {
     amount: new CcdAmount(BigInt(0)),
-    initName: REACT_APP_CONTRACT_NAME,//process.env.REACT_APP_CONTRACT_NAME!,
-    moduleRef: new ModuleReference(REACT_APP_MODULE_REF), //new ModuleReference(process.env.REACT_APP_MODULE_REF!),
+    initName: REACT_APP_CONTRACT_NAME,
+    moduleRef: new ModuleReference(REACT_APP_MODULE_REF),
     param: Buffer.alloc(0),
     maxContractExecutionEnergy: BigInt(9999),
    } as InitContractPayload
@@ -309,7 +309,7 @@ export default function Mint() {
    );
    const txnHash = await provider.sendTransaction(
     account!,
-    AccountTransactionType.Update,
+    AccountTransactionType.Update as any,
     {
      address,
      message: serializedParams,
@@ -451,7 +451,7 @@ const provider = await detectConcordiumProvider();
    );
    const txnHash = await provider.sendTransaction(
     account!,
-    AccountTransactionType.Update,
+    AccountTransactionType.Update as any,
     {
      address,
      message: serializedParams,
