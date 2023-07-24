@@ -118,7 +118,7 @@ Create another component called _Initialize.tsx_ using this we will invoke _init
 We strongly suggest you use environment variables to store sensitive values but please do not push sensitive info publicly for any reason to your GitHub repos as well!
 
 ```
-import { detectConcordiumProvider } from "@concordium/browser-wallet-api-helpers";
+import { detectConcordiumProvider, SmartContractParameters } from "@concordium/browser-wallet-api-helpers";
 import {
  AccountTransactionType,
  CcdAmount,
@@ -211,7 +211,7 @@ After these changes, our application will look like the one below. Ty the “INI
 Please create a _Mint.tsx_ file and paste the code below, it may look a bit longer than expected by looking at the first glance but most of it does validation checks of the necessary inputs for the data that will be read out from the form while minting the NFT.
 
 ```
-import { detectConcordiumProvider } from "@concordium/browser-wallet-api-helpers";
+import { detectConcordiumProvider, SmartContractParameters } from "@concordium/browser-wallet-api-helpers";
 import {
  AccountTransactionType,
  CcdAmount,
