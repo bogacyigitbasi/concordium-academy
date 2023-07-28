@@ -24,7 +24,6 @@ You are required to create instructional material including a video, written art
 
 * How to implement a vehicle sharing app, house renting app, simple game, ToDo app, etc.&#x20;
 * How to create an asset tokenization platform, crowdfunding platform, or auction platform.
-* How to implement a Dynamic NFT with AI-generated content (images, music, articles as NFT metadata).
 * How to generate a soul-bound token and use it?
 
 #### Concordium Developer Tools
