@@ -1,10 +1,8 @@
 # Table of contents
 
-* [🌴 Tutorial Contest: Summer 23'](README.md)
-
 ## CCD Academy
 
-* [Getting Started](<README (1).md>)
+* [Getting Started](README.md)
   * [Introduction to Concordium](ccd-academy/getting-started/introduction-to-concordium/README.md)
     * [🔐 ID Layer](ccd-academy/getting-started/introduction-to-concordium/id-layer.md)
     * [🪙 CIS-2 Token Types](ccd-academy/getting-started/introduction-to-concordium/cis-2-token-types/README.md)
