@@ -35,13 +35,18 @@
 
 * [🚀 Mid Level Tutorials](mid-level/mid-level-tutorials/README.md)
   * [🪙 Fractionalized NFT Tutorial](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/README.md)
-    * [Smart Contract](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/smart-contract.md)
+    * [📜 Smart Contract](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/smart-contract.md)
     * [Build & Deploy & Initialize](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/build-and-deploy-and-initialize.md)
     * [Mint](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/mint.md)
     * [Burn and Unlock](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/burn-and-unlock.md)
   * [⛏ Concordium NFT Minting Tutorial with Rust-SDK](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk/README.md)
     * [Smart Contract Template VSCode Extension](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk/smart-contract-template-vscode-extension.md)
     * [Contract Interactions with Concordium-Rust-SDK](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk/contract-interactions-with-concordium-rust-sdk.md)
+  * [🪙 Dynamic NFT Tutorial](mid-level/mid-level-tutorials/dynamic-nft-tutorial/README.md)
+    * [ℹ Dynamic NFTs](mid-level/mid-level-tutorials/dynamic-nft-tutorial/dynamic-nfts.md)
+    * [📜 Smart Contract Implementation](mid-level/mid-level-tutorials/dynamic-nft-tutorial/smart-contract-implementation.md)
+    * [🔃 Deploy and Interact](mid-level/mid-level-tutorials/dynamic-nft-tutorial/deploy-and-interact.md)
+    * [⚠ Smart Contract Testing Library](mid-level/mid-level-tutorials/dynamic-nft-tutorial/smart-contract-testing-library.md)
 
 ## Assignment #2
 

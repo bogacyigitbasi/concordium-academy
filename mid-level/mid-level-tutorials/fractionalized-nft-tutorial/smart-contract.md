@@ -1,4 +1,4 @@
-# Smart Contract
+# 📜 Smart Contract
 
 We will organize the smart contract slightly differently than usual for this tutorial. First, there will be a _lib.rs_ which is basically the main function of our contract like the other programming languages. The compiler starts from this file to compile it. The second file will be the _contract.rs_ which will be our primary _CIS-2_ contract that includes all the logic provided for the requirements. I wanted to keep the _State.rs, Params.rs,_ and _Error.rs_ files separately just for demonstration purposes meaning you can keep them all in your _lib.rs_ file. Finally, we will have a _cis2\_client.rs_ which will enable the master contract to do some operations on the cis-2 token contract. One little reminder, there will be some additions to the cis2-multi contract, you can check the particular contract in this [link](https://github.com/Concordium/concordium-rust-smart-contracts/tree/main/examples/cis2-multi).
 
