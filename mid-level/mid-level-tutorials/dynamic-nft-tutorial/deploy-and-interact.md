@@ -1,6 +1,6 @@
 ---
 description: >-
-  In this section, we will deploy the contract, initialize it and invoke all of
+  In this section, we will deploy the contract, initialize it, and invoke all of
   the entrypoints created on testnet.
 ---
 
@@ -8,7 +8,7 @@ description: >-
 
 **Build**
 
-We will build the smart contract with the following command, in your production releases we suggest using this flag and publishing the code. This way people can later check that the contract source matches the deployed module. More information about verifiable builds can be found [here](https://docs.rs/crate/cargo-concordium/latest).&#x20;
+We will build the smart contract with the command below. In your production releases, we suggest using this flag and publishing the code. This way people can later check that the contract source matches the deployed module. More information about verifiable builds can be found [here](https://docs.rs/crate/cargo-concordium/latest).&#x20;
 
 ```
 cargo concordium build --verifiable docker.io/concordium/verifiable-sc:1.70.0 -o module.wasm.v1 -e
@@ -16,13 +16,13 @@ cargo concordium build --verifiable docker.io/concordium/verifiable-sc:1.70.0 -o
 ```
 
 {% hint style="info" %}
-Please note that this build embeds the schema so you don't have to keep the schema as a separate compilation output anymore. The use of embedded schema is strongly suggested by Concordium.
+Please note that this build embeds the schema so you don't have to keep the schema as a separate compilation output anymore. The use of embedded schema is strongly recommended by Concordium.
 {% endhint %}
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-12-28 at 15.00.10.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-Please note that the classical build command also works however, you will get the following warning:&#x20;
+Please note that the classical build command also works, however, you will get the following warning:&#x20;
 
 `This is not a verifiable build. Consider using the --verifiable option before deploying the module. A verifiable build packages sources and makes it possible to verify that the sources match the deployed module.`
 {% endhint %}
@@ -32,7 +32,7 @@ You should run Docker in your system and let it pull the required image.
 {% endhint %}
 
 {% hint style="info" %}
-Cargo.lock file should not be included to .gitignore
+Do not include the Cargo.lock file in .gitignore.
 {% endhint %}
 
 **Deploy**
@@ -54,7 +54,7 @@ concordium-client contract init <MODULE-REF> --sender <YOUR-ACCOUNT-ADDRESS> --e
 
 **Mint**
 
-There will be 3 different metadata for each state of our pet from puppy to strong dog. Each metadata and image is uploaded to IPFS therefore publicly available for you and can be used for demo purposes.&#x20;
+There will be 3 different metadata for each state of our pet from puppy to strong dog. Each metadata and image below is uploaded to IPFS, therefore publicly available for you, and can be used for demo purposes.&#x20;
 
 Little Puppy CIS2 Compatible Metadata File&#x20;
 
@@ -116,10 +116,10 @@ Strong Dog CIS2 Compatible Metadata File
 }
 ```
 
-Excellent, now we should create all necessary JSON files to mint our token. First, let's create a JSON file for `MintParams`. Remember the struct we created in the smart contract, it requires an `owner` and corresponding `tokens` that holds a list of `MetadataUrl` for a token ID and the amount of it. Please note that, we will create it with only the first 2 metadata, to be able to test the `addMetadata` and `upgrade` functions.&#x20;
+Excellent. Now we should create all necessary JSON files to mint our token. First, let's create a JSON file for `MintParams`. Remember the struct we created in the smart contract; it requires an `owner` and corresponding `tokens` that holds a list of `MetadataUrl` for a token ID and the amount of it. Please note that we will create it with only the first two metadata to be able to test the `addMetadata` and `upgrade` functions.&#x20;
 
 {% hint style="info" %}
-Don't forget to upload the metadata files to IPFS as well, it means when you mint a token, you should give a hyperlink to the metadata file and the SHA(256) of the content optionally.&#x20;
+Don't forget to upload the metadata files to IPFS as well. This means when you mint a token, you should give a hyperlink to the metadata file and the SHA(256) of the content optionally.&#x20;
 {% endhint %}
 
 ```json
@@ -166,13 +166,13 @@ concordium-client contract update <CONTRACT-INDEX> --entrypoint mint --parameter
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-12-29 at 14.09.32.png" alt=""><figcaption></figcaption></figure>
 
-Nice! We have successfully minted our token, lets go and check it from our wallet.
+Nice! We have successfully minted our token. Let's go and check it from our wallet.
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-12-29 at 14.26.21.png" alt=""><figcaption></figcaption></figure>
 
 **Upgrade**
 
-Now, its is the big moment. Lets test whether this NFT is dynamic or not! We should be able to upgrade the metadata and evolve this little puppy into a cool boy! The `upgrade` function requires the token ID as a string in the JSON file.&#x20;
+Now, it is the big moment. Let's test whether this NFT is dynamic or not! We should be able to upgrade the metadata and evolve this little puppy into a cool boy! The `upgrade` function requires the token ID as a string in the JSON file.&#x20;
 
 ```json
 "01"
@@ -186,19 +186,19 @@ concordium-client contract update <YOUR-CONTRACT-INDEX> --entrypoint upgrade --p
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-12-29 at 14.32.47.png" alt=""><figcaption></figcaption></figure>
 
-The transaction is completed. So excited, let's go and check!
+The transaction is complete. So excited! Let's go and check!
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-12-29 at 14.36.51.png" alt=""><figcaption></figcaption></figure>
 
 Isn't he gorgeous? :heart\_eyes: Our little puppy is now a cool boy!&#x20;
 
 {% hint style="info" %}
-Please keep this in mind, this step can be triggered by an oracle or any other interaction.&#x20;
+Please keep in mind that this step can be triggered by an oracle or any other interaction.&#x20;
 {% endhint %}
 
 **Add Metadata**
 
-Now we are about to finalize our tutorial, one last step which is the addition of new metadata. Our cool boy will become a strong and majestic star!
+Now we are about to finalize our tutorial. One last step is the addition of new metadata. Our cool boy will become a strong and majestic star!
 
 Let's go and check the `AddParams` struct to create the right form of JSON file. It expects `tokens`that holds both token ID and `MetadataUrl` which is essentially `url` and `hash`.
 
@@ -234,9 +234,9 @@ Are you ready to see our cool boy? Well, he may have changed a little...
 
 **Token Metadata History**
 
-Wow, it has been a great journey so far. Since the very first moment, we embarked on this journey we knew that our little puppy would become a tremendous loyal hero. :100:
+Wow, it has been a great journey so far. Since the very first moment we embarked on this journey we knew that our little puppy would become a tremendous loyal hero. :100:
 
-Now, let's see what he has been through in all this time. We will invoke `tokenMetadataList` function to be able to see it. It accepts a vector of token IDs -see the following JSON-, to be able to return all of the tokens in the contract and their history in the form of `TokenMetadataList` struct which we defined as `Vec<Vec<MetadataUrl>>`.
+Now, let's see what he has been through in all this time. We will invoke `tokenMetadataList` function to be able to see it. It accepts a vector of token IDs (see the following JSON) to be able to return all of the tokens in the contract and their history in the form of a  `TokenMetadataList` struct which we defined as `Vec<Vec<MetadataUrl>>`.
 
 ```json
 [

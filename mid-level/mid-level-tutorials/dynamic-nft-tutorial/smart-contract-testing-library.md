@@ -6,11 +6,11 @@ description: >-
 
 # ⚠ Smart Contract Testing Library
 
-You can find the documentation in [concordium-testing-library](https://docs.rs/concordium-smart-contract-testing/latest/concordium\_smart\_contract\_testing/) as its explained in the developer portal the library simulates part of a blockchain _locally_ to allow you to create one or more contracts and interact with them in the tests. Simply put, you can deploy your contracts to your local, and interact with them to test before even deploying them to testnet. Nice huh?
+You can find the documentation in [concordium-testing-library](https://docs.rs/concordium-smart-contract-testing/latest/concordium\_smart\_contract\_testing/). As explained in the developer portal, the library simulates part of a blockchain _locally_ to allow you to create one or more contracts and interact with them in the tests. Simply put, you can deploy your contracts to your local environment and interact with them to test before even deploying them to testnet. Nice huh?
 
 ### Testing Library Configurations
 
-Start by adding the [`concordium-smart-contract-testing`](https://docs.rs/concordium-smart-contract-testing/latest/concordium\_smart\_contract\_testing/) library to the `Cargo.toml` located in the project root. You should add it under the section `[dev-dependencies]` which are dependencies only needed during development, as it is only needed during testing. The library requires the Rust edition `2021` or greater, which you must also set:
+Start by adding the [`concordium-smart-contract-testing`](https://docs.rs/concordium-smart-contract-testing/latest/concordium\_smart\_contract\_testing/) library to the `Cargo.toml` located in the project root. You should add it under the section `[dev-dependencies]` which are dependencies only needed during development as it is only needed during testing. The library requires the Rust edition `2021` or greater, which you must also set:
 
 ```
 [package]
@@ -23,7 +23,7 @@ concordium-smart-contract-testing = "3.0"
 
 #### Add a test module
 
-Since a smart contract module is a regular Rust library, you can test it as one would test any library and add integration tests in the `tests` folder.
+Since a smart contract module is a regular Rust library, you can test it as you would test any library and add integration tests in the `tests` folder.
 
 Create the folder `tests` in the root of your project and add the file `tests.rs` inside it.
 
@@ -35,7 +35,7 @@ use concordium_smart_contract_testing::*;
 
 ### Implementation
 
-In this section, first, we will start with the definitions of the constants and then continue with the function implementations. We will create the `test.rs` file line by line together, so bare with us!
+In this section, we will start with the definitions of the constants and then continue with the function implementations. We will create the `test.rs` file line by line together, so bear with us!
 
 **Imports**
 
@@ -53,7 +53,7 @@ use concordium_std::*;
 
 #### Constants
 
-For the sake of tests, we will use two accounts `ALICE` & `BOB`, two tokens `TOKEN_0` & `TOKEN_2`, an account balance with 10000 CCDs as `ACC_INITIAL_BALANCE`and a `SIGNER`
+For the sake of tests, we will use two accounts `ALICE` & `BOB`, two tokens `TOKEN_0` & `TOKEN_2`, an account balance with 10000 CCDs as `ACC_INITIAL_BALANCE,`and a `SIGNER.`
 
 ```rust
 /// The tests accounts.
@@ -79,7 +79,7 @@ You created the account addresses using an array of 32 bytes, which is how accou
 
 **Initialize Chain and Contract**
 
-In the following, we are going to set up a local chain including accounts, deploy our smart contract module and initialize the contract. Use the build that has been created in the previous section. This is an important function and we will re-use it while creating the other test functions.
+In the following, we are going to set up a local chain including accounts, deploy our smart contract module, and initialize the contract. Use the build that has been created in the previous section. This is an important function and we will re-use it while creating the other test functions.
 
 ```rust
 /// Setup chain and contract.
@@ -403,7 +403,7 @@ fn test_unauthorized_sender() {
 ```
 
 {% hint style="info" %}
-Since the tests run against the compiled Wasm module, there is a risk of accidentally using an outdated Wasm module. To circumvent this, cargo concordium’s test command both builds and tests you contract, which ensures that you always test the newest version of your code. By default, it places the compiled Wasm module in the `target/` folder, but you can specify where you want it placed, so the location is easy to specify in your tests. To do so, use the `--out` parameter when testing.
+Since the tests run against the compiled Wasm module, there is a risk of accidentally using an outdated Wasm module. To circumvent this, cargo concordium’s test command both builds and tests your contract, which ensures that you always test the newest version of your code. By default, it places the compiled Wasm module in the `target/` folder, but you can specify where you want it placed, so the location is easy to specify in your tests. To do so, use the `--out` parameter when testing.
 {% endhint %}
 
 ```

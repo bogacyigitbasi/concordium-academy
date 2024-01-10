@@ -11,7 +11,7 @@ description: >-
 Please keep this in mind, since this is a mid-level tutorial, we assume that you have completed the other token tutorials in the developer [portal](https://developer.concordium.software/en/mainnet/smart-contracts/tutorials/sft-minting/index.html). Therefore, we will not explain everything in detail.&#x20;
 {% endhint %}
 
-Before we start implementation of the contract let's go over the example scenario. We will use our beloved, loyal friends in this tutorial. Assume that there is a little puppy, that will evolve into a cool little boy and then become a strong dog. Whenever we want to display or pet we will see its latest form and the transformation can be triggered by only the contract owner. &#x20;
+Before we start implementation of the contract let's go over the example scenario. We will use our beloved, loyal friends in this tutorial. Assume that there is a little puppy that will evolve into a cool little boy and then become a strong dog. Whenever we want to display our pet we will see its latest form and the transformation can be triggered only by the contract owner. &#x20;
 
 * We want our d-NFT contract to support multiple metadata.&#x20;
 * The contract owner can add new metadata to the token and upgrade the existing metadata.&#x20;
@@ -19,11 +19,11 @@ Before we start implementation of the contract let's go over the example scenari
 
 ### Smart Contract Modification
 
-Initially, we will start with modifying the state, this step includes adjusting the state variables, and creating structs for required logic, getter, and setter functions.
+Initially, we will start with modifying the state. This step includes adjusting the state variables and creating structs for required logic, getter, and setter functions.
 
 #### Contract's State Operations
 
-Instead of keeping a `MetadataUrl` in `tokens` that represents the URL of the metadata for that token, we will keep another struct called `TokenMetadataState`. This struct holds a counter value and a list of  `MetadataUrl`which gives us to have more than one `MetadataUrl` for a token. The counter keeps the current index value of the present `MetadataUrl` in the list. When it is upgraded we increment it, and the latest one refers to the current `MetadataUrl` of the token.
+Instead of keeping a `MetadataUrl` in `tokens` that represents the URL of the metadata for that token, we will keep another struct called `TokenMetadataState`. This struct holds a counter value and a list of  `MetadataUrl`which lets us have more than one `MetadataUrl` for a token. The counter keeps the current index value of the present `MetadataUrl` in the list. When it is upgraded we increment it, and the latest one refers to the current `MetadataUrl` of the token.
 
 ```rust
 /// The token state keeps a counter variable (as an index)
@@ -60,7 +60,7 @@ struct State<S> {
 }
 ```
 
-First, we should modify the `mint` function in the state accordingly to be able to set initial values when its invoked. At the initial state of the token, `token_metadata_current_state_counter` has to be 0 and the `token_metadata_list` will be given by the `MintParams`.
+First, we should modify the `mint` function in the state accordingly to be able to set initial values when it is invoked. At the initial state of the token, `token_metadata_current_state_counter` has to be 0 and the `token_metadata_list` will be given by the `MintParams`.
 
 ```rust
 /// Mints an amount of tokens with a given address as the owner.
@@ -124,7 +124,7 @@ Similarly, we need to create a function to be able to add new metadata.
     }
 ```
 
-And final three functions of the state are the getters of the token, `counter,` and `metadataUrl`.
+And the final three functions of the state are the getters of the token, `counter,` and `metadataUrl`.
 
 ```rust
     /// Returns the current counter value which is using for indexing the vector
@@ -155,7 +155,7 @@ And final three functions of the state are the getters of the token, `counter,` 
 
 #### Mint
 
-In this section, we will create the `mint` function and the required parameters. First of all, we need to modify the `MintParams` struct as below, as we want to be able to have a list of `MetadataUrl` while minting. So that the contract owner can mint a d-NFT with more than one metadata.&#x20;
+In this section, we will create the `mint` function and the required parameters. First of all, we need to modify the `MintParams` struct as below, as we want to be able to have a list of `MetadataUrl` while minting, so that the contract owner can mint a d-NFT with more than one metadata.&#x20;
 
 ```rust
 /// MintParam expects the token amount as TokenAmountU64
@@ -243,7 +243,7 @@ fn contract_mint<S: HasStateApi>(
 
 #### Add
 
-Based on our requirements, we want that the contract owner should be able to add a new `MetadataUrl`. Please be careful, this is different than upgrading it, which is covered in the next step.&#x20;
+Based on our requirements, we want the contract owner be able to add a new `MetadataUrl`. Please be careful - this is different than upgrading it, which is covered in the next step.&#x20;
 
 ```rust
 /// The parameter for the contract function `addMetadata` which adds a Metadata
@@ -295,7 +295,7 @@ fn contract_add_metadata<S: HasStateApi>(
 
 #### Upgrade
 
-As per the requirements, the contract owner can call the `upgrade` function at a time. This entrypoint basically calls the state's `upgrade` function to increment the index.&#x20;
+As per the requirements, the contract owner can call the `upgrade` function. This entrypoint basically calls the state's `upgrade` function to increment the index.&#x20;
 
 ```rust
 pub type TokenUpdateParams = ContractTokenId;
@@ -345,7 +345,7 @@ fn contract_upgrade<S: HasStateApi>(
 
 #### TokenMetadata
 
-This function is the one when you are displaying a token or querying its `MetadataUrl` which needs some modifications to return the latest element of the list of `MetadataUrl`s for a given token ID.
+This function is used when you are displaying a token or querying its `MetadataUrl` which needs some modifications to return the latest element of the list of `MetadataUrl`s for a given token ID.
 
 ```rust
 /// Get the token metadata URL and checksums given a list of token IDs.
@@ -386,7 +386,7 @@ fn contract_token_metadata<S: HasStateApi>(
 
 #### TokenMetadataList
 
-As a final step of the requirements, our contract should return the list of the `MetadataUrl` that has been contained by any token from its initial state. Therefore, we created a helper struct that holds the `MetadataUrl`s of tokens' queried. The `tokenMetadataList` entrypoint iterates the given token IDs and adds the `MetadataUrl`s to the final vector to return.
+As a final step of the requirements, our contract should return the list of the `MetadataUrl` that has been contained by any token from its initial state. Therefore, we created a helper struct that holds the `MetadataUrl`s of tokens queried. The `tokenMetadataList` entrypoint iterates the given token IDs and adds the `MetadataUrl`s to the final vector to return.
 
 ```rust
 #[derive(Serialize, SchemaType)]
