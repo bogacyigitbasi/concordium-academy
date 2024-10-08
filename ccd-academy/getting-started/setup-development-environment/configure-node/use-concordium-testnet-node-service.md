@@ -15,8 +15,8 @@ get_peers_info = false
 get_node_info = false
 ```
 
-You need to add _--grpc-port 1000 --grpc-ip testnet.node.concordium.com_ at the end of your command like below.
+You need to add _--grpc-port 20000 --grpc-ip node.testnet.concordium.com_ at the end of your command like below.
 
 ```
-concordium-client my_command --grpc-port 1000 --grpc-ip testnet.node.concordium.com
+concordium-client my_command --grpc-port 20000 --grpc-ip node.testnet.concordium.com
 ```

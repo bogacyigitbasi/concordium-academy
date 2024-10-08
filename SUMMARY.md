@@ -10,7 +10,7 @@
       * [Non-Fungible Tokens](ccd-academy/getting-started/introduction-to-concordium/cis-2-token-types/non-fungible-tokens.md)
       * [Semi-Fungible Tokens](ccd-academy/getting-started/introduction-to-concordium/cis-2-token-types/semi-fungible-tokens.md)
       * [SoulBound Tokens](ccd-academy/getting-started/introduction-to-concordium/cis-2-token-types/soulbound-tokens.md)
-  * [👩💻 Setup Development Environment](ccd-academy/getting-started/setup-development-environment/README.md)
+  * [👩‍💻 Setup Development Environment](ccd-academy/getting-started/setup-development-environment/README.md)
     * [Rust Installation](ccd-academy/getting-started/setup-development-environment/rust-installation.md)
     * [Install concordium-client](ccd-academy/getting-started/setup-development-environment/install-concordium-client.md)
     * [Configure Node](ccd-academy/getting-started/setup-development-environment/configure-node/README.md)
@@ -22,10 +22,10 @@
 
 ***
 
-* [🏄♂ Beginner Level Tutorials](beginner-level-tutorials/README.md)
+* [🏄‍♂️ Beginner Level Tutorials](beginner-level-tutorials/README.md)
   * [🔢 counter](beginner-level-tutorials/counter.md)
   * [📠 Register Data On-Chain](beginner-level-tutorials/register-data-on-chain.md)
-  * [⛏ Simple Minting dApp](beginner-level-tutorials/simple-minting-dapp.md)
+  * [⛏️ Simple Minting dApp](beginner-level-tutorials/simple-minting-dapp.md)
 
 ## Assignment #1
 
@@ -39,14 +39,14 @@
     * [Build & Deploy & Initialize](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/build-and-deploy-and-initialize.md)
     * [Mint](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/mint.md)
     * [Burn and Unlock](mid-level/mid-level-tutorials/fractionalized-nft-tutorial/burn-and-unlock.md)
-  * [⛏ Concordium NFT Minting Tutorial with Rust-SDK](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk/README.md)
+  * [⛏️ Concordium NFT Minting Tutorial with Rust-SDK](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk/README.md)
     * [Smart Contract Template VSCode Extension](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk/smart-contract-template-vscode-extension.md)
     * [Contract Interactions with Concordium-Rust-SDK](mid-level/mid-level-tutorials/concordium-nft-minting-tutorial-with-rust-sdk/contract-interactions-with-concordium-rust-sdk.md)
   * [🪙 Dynamic NFT Tutorial](mid-level/mid-level-tutorials/dynamic-nft-tutorial/README.md)
-    * [ℹ Dynamic NFTs](mid-level/mid-level-tutorials/dynamic-nft-tutorial/dynamic-nfts.md)
+    * [ℹ️ Dynamic NFTs](mid-level/mid-level-tutorials/dynamic-nft-tutorial/dynamic-nfts.md)
     * [📜 Smart Contract Implementation](mid-level/mid-level-tutorials/dynamic-nft-tutorial/smart-contract-implementation.md)
     * [🔃 Deploy and Interact](mid-level/mid-level-tutorials/dynamic-nft-tutorial/deploy-and-interact.md)
-    * [⚠ Smart Contract Testing Library](mid-level/mid-level-tutorials/dynamic-nft-tutorial/smart-contract-testing-library.md)
+    * [⚠️ Smart Contract Testing Library](mid-level/mid-level-tutorials/dynamic-nft-tutorial/smart-contract-testing-library.md)
 
 ## Assignment #2
 
